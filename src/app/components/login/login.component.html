@@ -1,0 +1,51 @@
+<!-- --------------------------- -->
+<div class="main">
+    <div class="form">
+        <br>
+        <button class="myButton" *ngIf="this.us.login" (click)="startS()">{{this.us.value}}</button>
+        <br>
+        <br>
+        <form [formGroup]="myForm">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" formControlName="email" required>
+            </mat-form-field>
+            <br>
+            <span *ngIf="myForm.controls.email.dirty && myForm.controls.email.invalid">email cannot
+                be empty</span>
+            <br>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Password" formControlName="password" required>
+            </mat-form-field>
+            <br>
+            <span *ngIf="myForm.controls.password.dirty && myForm.controls.password.invalid">password
+                cannot be
+                empty</span>
+            <br>
+            <button class="myButton" (click)="handleSubmit()">Login</button>
+        </form>
+        <br>
+        <p>don't have an account yet? <a routerLink="/register">Register</a></p>
+    </div>
+    <div class="About">
+        <h1>About the store</h1>
+        <p>Fashion Style is a European-style fashion store,
+            for young women and women who love a young, trendy and
+            up-to-date line.
+            This is the place of classic clothing that combines beauty,
+            quality and fashion on one hanger.
+            We draw inspiration for our unique clothing from the constant follow-up of fashion news in global fashion
+            capitals, such as London, France and Hong Kong.
+            And what makes the fashion-style merchandise in demand is the meticulousness of the quality of the fabrics
+            and the precise cuts that make the look perfect.
+        </p>
+    </div>
+    <div class="info">
+        <h1>General Information</h1>
+        <p>The quantity of products available on the site: {{totalProductsAvailable}}</p>
+        <p>The amount of orders placed on the site:{{totalOrdersPlaced}}</p>
+        <br>
+        <p class="msg">{{this.us.msg}}</p>
+    </div>
+</div>

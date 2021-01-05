@@ -1,0 +1,67 @@
+.categories{
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-evenly;
+}
+
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color:#ededed;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#777777;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	background-color:#dfdfdf;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.products{
+    display: flex;
+    flex-wrap: wrap; 
+}
+/* .product{
+    margin: 5px;
+    height: 10%;
+    width: 25%;
+} */
+
+.example-card{
+    margin: 5px;
+	/* width: 50vw;
+	height: 55vh; */
+	width: 200px;
+	height: 400px;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mat-card {
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    position: relative;
+    padding: 16px;
+    border-radius: 4px;
+}
+
+.mat-card-image{
+	width: 230px;
+	height: 250px;
+}

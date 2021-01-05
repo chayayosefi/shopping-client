@@ -1,0 +1,36 @@
+.mat-card-image{
+height: 50px;
+width: 50px;
+}
+
+.product{
+height: 5%;
+width: 80%;
+margin: 2px;
+}
+
+.main{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+.info{
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+}
+
+.x{
+border: white;
+height:20px ;
+width: 20px;
+}
+
+.hader{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+
+
+

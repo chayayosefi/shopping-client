@@ -1,0 +1,23 @@
+<div class="categories">
+    <div class="category" *ngFor="let c of this.ss.allCategories">
+        <button class="myButton" (click)="getProByCategory(c._id)">{{c.name}}</button>
+    </div>
+</div>
+
+<div class="products">
+    <div class="product" *ngFor="let p of this.is.products">
+        <mat-card class="example-card">
+            <button type="button" mat-button *ngIf="this.us.admin" class="cartIcon" (click)="editProduct(p)">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <mat-card-header>
+                <mat-card-title>{{p.name}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src={{p.imagePath}} alt="Photo of a Shiba Inu">
+            <h5> {{p.price}} $</h5>
+            <mat-card-actions *ngIf="!this.us.admin">
+                <button mat-raised-button class="myButton" (click)="openDialog(p)">choose</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

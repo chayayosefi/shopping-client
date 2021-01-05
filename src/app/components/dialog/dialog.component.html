@@ -1,0 +1,10 @@
+<div mat-dialog-content>
+    <p>Select product quantity</p>
+    <mat-form-field>
+        <input type="number" matInput [(ngModel)]="quantity" min="1" max="10">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>No Thanks</button>
+    <button mat-button [mat-dialog-close]="quantity">Add</button>
+</div>

@@ -1,0 +1,49 @@
+<form [formGroup]="formGroupProduct">
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input type="text" matInput placeholder="name" formControlName="name" required>
+    </mat-form-field>
+    <br>
+    <span *ngIf="formGroupProduct.controls.name.dirty && formGroupProduct.controls.name.invalid">name cannot be
+        empty</span>
+    <br>
+    <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="categoryId">
+            <mat-option value={{this.ss.allCategories[0]._id}}>{{this.ss.allCategories[0].name}}</mat-option>
+            <mat-option value={{this.ss.allCategories[1]._id}}>{{this.ss.allCategories[1].name}}</mat-option>
+            <mat-option value={{this.ss.allCategories[2]._id}}>{{this.ss.allCategories[2].name}}</mat-option>
+            <mat-option value={{this.ss.allCategories[3]._id}}>{{this.ss.allCategories[3].name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input type="number" matInput placeholder="price" formControlName="price" required>
+    </mat-form-field>
+    <br>
+    <span *ngIf="formGroupProduct.controls.price.dirty && formGroupProduct.controls.price.invalid">price cannot be
+        empty</span>
+    <br>
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input type="text" matInput placeholder="description" formControlName="description" required>
+    </mat-form-field>
+    <br>
+    <span
+        *ngIf="formGroupProduct.controls.description.dirty && formGroupProduct.controls.description.invalid">description
+        cannot be empty</span>
+    <br>
+    <mat-form-field>
+        <mat-label>ImagePath</mat-label>
+        <input type="text" matInput placeholder="imagePath" formControlName="imagePath" required>
+    </mat-form-field>
+    <br>
+    <span *ngIf="formGroupProduct.controls.imagePath.dirty && formGroupProduct.controls.imagePath.invalid">image Path
+        cannot be empty</span>
+    <div>
+        <p>{{msg}}</p>
+        <br>
+        <button (click)="editProduc(); formGroupProduct.reset();">Save</button>
+    </div>
+</form>

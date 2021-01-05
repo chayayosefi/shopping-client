@@ -1,0 +1,25 @@
+<button *ngIf="this.us.cart!=undefined" class="clean" (click)="productsDelete()">clean the cart</button>
+<br>
+<div *ngFor="let p of this.ss.productInCart">
+    <mat-card class="product">
+        <div class="hader">
+            <h4>{{p.name}}</h4>
+            <button class="x" (click)="productDelete(p)">x</button>
+        </div>
+        <div class="main">
+            <div class="info">
+                <h5>Price{{p.price}}$</h5>
+                <h5>Quantity: {{p.quantity_in_cart}}</h5>
+                <h5>Total product: {{p.quantity_in_cart*p.price}}$</h5>
+            </div>
+            <img mat-card-image src={{p.imagePath}} alt="img">
+        </div>
+        <mat-card-actions>
+            <button mat-button (click)="productUpdate(p.quantity_in_cart+1,p)">+</button>
+            <button mat-button (click)="productUpdate(p.quantity_in_cart-1,p)">-</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<h4 *ngIf="this.us.cart!=undefined">Final price of cart:{{this.us.cart.finalPrice}}$</h4>
+<h4 *ngIf="this.us.cart!=undefined"><a routerLink="/order">order</a></h4>

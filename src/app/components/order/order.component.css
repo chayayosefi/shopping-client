@@ -1,0 +1,22 @@
+.main{ 
+display: flex;
+flex-direction: row;
+height: 100%;
+width: 100%;
+justify-content: space-around;
+}
+
+.mat-card-image{
+height: 50px;
+width: 50px;
+}
+    
+.product{
+height: 5%;
+width: 80%;
+margin: 2px;
+}
+
+h2{
+color: red;
+}

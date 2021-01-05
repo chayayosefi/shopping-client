@@ -1,0 +1,21 @@
+
+/* .container{
+    
+} */
+
+.register {
+    display: flex;
+    align-items: center;
+    position: absolute; 
+    top: 50%;
+    left: 45%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
+}
+
+/* .back{
+
+} */
+

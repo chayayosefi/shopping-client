@@ -1,0 +1,31 @@
+
+.logo{
+height: 50px;
+width: 100px;
+}
+
+.search{
+    margin: 0 auto;
+    width: 150px;
+}
+
+.searchB{
+margin-left: 40px;
+border:none;
+border-radius: 50%;
+background-color: #ff4081;
+cursor: pointer;
+width: 45px;
+height: 45px;
+padding: 0;
+} 
+
+/* .s{
+    height: 20px;
+    width: 20px;
+}  */
+
+button{
+border: white;
+}
+

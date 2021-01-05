@@ -1,0 +1,53 @@
+<br>
+<div class="main">
+    <div class="cart">
+        <h3>My cart</h3>
+        <p><a routerLink="/store">Back to shop</a></p>
+        <div *ngFor="let p of this.ss.productInCart">
+            <mat-card class="product">
+                <h4>{{p.name}}</h4>
+                <div class="main">
+                    <div class="info">
+                        <h5>Price{{p.price}}$</h5>
+                        <h5>Quantity: {{p.quantity_in_cart}}</h5>
+                        <h5>Total product: {{p.quantity_in_cart*p.price}}$</h5>
+                    </div>
+                    <img mat-card-image src={{p.imagePath}} alt="img">
+                </div>
+            </mat-card>
+        </div>
+        <h2>NO CHANGES CAN BE MADE HERE !!</h2>
+        <h4>Final price of cart:{{this.us.cart.finalPrice}}$</h4>
+    </div>
+    <div class="order">
+        <h3>Order</h3>
+        <h3>Shipping Details:</h3>
+        <form [formGroup]="details" (ngSubmit)="handleSubmit()">
+            <input type="text" placeholder="City" formControlName="city" (dblclick)="city()">
+            <br>
+            <span *ngIf="details.controls.city.dirty && details.controls.city.invalid">City cannot be empty</span>
+            <br>
+            <input type="text" placeholder="Street" formControlName="street" (dblclick)="street()">
+            <br>
+            <span *ngIf="details.controls.street.dirty && details.controls.street.invalid">Street cannot be
+                empty</span>
+            <br>
+            <input type="date" placeholder="Delivery Date" formControlName="deliveryDate" min="{{today}}">
+            <br>
+            <span *ngIf="details.controls.deliveryDate.dirty && details.controls.deliveryDate.invalid">Delivery date
+                cannot be
+                empty</span>
+            <span>{{msg}}</span>
+            <br>
+            <h3>Payments:</h3>
+            <input type="text" placeholder="Credit Card" formControlName="creditCard">
+            <br>
+            <span *ngIf="details.controls.creditCard.dirty && details.controls.creditCard.invalid">Credit card date
+                cannot be
+                empty</span>
+            <br>
+            <input type="submit" value="Order" [disabled]="details.invalid">
+        </form>
+    </div>
+
+</div>
