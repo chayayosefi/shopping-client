@@ -8,7 +8,7 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl: string = "http://localhost:1000/admin"
+  baseUrl: string = 'https://fashion-shopping-server.herokuapp.com/admin';
   editProduct: any
   sideNav: boolean = false
   checkAddOrEdit: boolean = false

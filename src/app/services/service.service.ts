@@ -12,7 +12,7 @@ export class ServiceService {
     public us: UserService
   ) { }
 
-  baseUrl: string = "http://localhost:1000/actions"
+  baseUrl: string = "https://fashion-shopping-server.herokuapp.com/actions"
   allProducts: any
   productInCart: any = []
   allCategories: any

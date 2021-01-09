@@ -16,7 +16,7 @@ export class UserService {
   LeftTheStore: boolean = false
   admin: boolean = false
   loggedUser: any
-  baseUrl: string = "http://localhost:1000/user"
+  baseUrl: string = "https://fashion-shopping-server.herokuapp.com/user"
   cart: any
   cartExist: boolean = false
   login: boolean

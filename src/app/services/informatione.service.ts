@@ -8,7 +8,7 @@ export class InformationeService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl: string = "http://localhost:1000/main/"
+  baseUrl: string = "https://fashion-shopping-server.herokuapp.com/main/"
   products: any
 
   getProductsByCategory(categoryId) {
