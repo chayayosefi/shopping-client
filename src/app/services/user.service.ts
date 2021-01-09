@@ -51,6 +51,7 @@ export class UserService {
   }
 
   deleteProductFromCart(body) {
+    debugger
     return this.http.put(this.baseUrl + '/deleteProductFromCart', JSON.stringify(body), {
       headers: {
         'Content-Type': 'application/json',
@@ -69,7 +70,7 @@ export class UserService {
   }
 
   deleteCart(id) {
-    return this.http.put(this.baseUrl + '/delete_cart/' + id, {
+    return this.http.put(this.baseUrl + '/delete_cart/' + id, {}, {
       headers: {
         "Content-Type": "application/json",
         "Authorization": localStorage.token
@@ -124,7 +125,7 @@ export class UserService {
     this.login = undefined
     this.msg = undefined
     this.loggedUser = undefined
-    this.value =''
+    this.value = ''
     this.r.navigateByUrl('/login')
   }
 
