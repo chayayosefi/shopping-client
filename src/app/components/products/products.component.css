@@ -31,35 +31,21 @@
 
 .products{
     display: flex;
-    flex-wrap: wrap; 
+	flex-wrap: wrap; 
+	justify-content: center;
 }
-/* .product{
-    margin: 5px;
-    height: 10%;
-    width: 25%;
-} */
 
 .example-card{
     margin: 5px;
-	/* width: 50vw;
-	height: 55vh; */
 	width: 200px;
 	height: 400px;
 	margin-top: 1%;
 	margin-bottom: 1%;
+	display: block;
+	position: relative;
+	border-radius: 4px;
 }
 
-.mat-card:not([class*=mat-elevation-z]) {
-    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-}
-
-.mat-card {
-    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-    display: block;
-    position: relative;
-    padding: 16px;
-    border-radius: 4px;
-}
 
 .mat-card-image{
 	width: 230px;

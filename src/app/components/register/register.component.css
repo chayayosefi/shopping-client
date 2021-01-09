@@ -2,20 +2,21 @@
 /* .container{
     
 } */
+::ng-deep .mat-horizontal-stepper-header{
+    pointer-events: none !important;
+}
+
 
 .register {
-    display: flex;
     align-items: center;
     position: absolute; 
-    top: 50%;
-    left: 45%;
-    margin-top: -50px;
-    margin-left: -50px;
-    width: 100px;
+    top: 15%;
+    left: 30%;
+    margin-top: 1%;
+	margin-bottom: 1%;
+	display: block;
+    width: 500px;
     height: 100px;
 }
 
-/* .back{
-
-} */
 

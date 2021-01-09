@@ -30,22 +30,21 @@ export class EditProductComponent implements OnInit {
       name: [this.as.editProduct.name, Validators.required],
       categoryId: [this.as.editProduct.categoryId, Validators.required],
       price: [this.as.editProduct.price, Validators.required],
-      description: [this.as.editProduct.description, Validators.required],
       imagePath: [this.as.editProduct.imagePath, Validators.required]
     });
   }
 
-  editProduc() {
-    
+  editProduct() {
     this.as.edit_product(this.formGroupProduct.value).subscribe(
       (res: any) => {
         if (res.error) {
           this.msg = res.msg
         } else {
-          this.is.getProductsByCategory("5fbe6a13dd49bd44a8993e53").subscribe(
+          this.is.getProductsByCategory("5ff9da2552c72c77fce082a0").subscribe(
             res => {
               this.is.products = res
               this.as.editProduct = undefined
+              this.as.sideNav=false
             }
           )
         }

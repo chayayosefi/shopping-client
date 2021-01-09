@@ -5,18 +5,21 @@
   <h2>Fashion Style</h2>
   <br>
   <br>
-  <mat-form-field class="search" *ngIf="this.us.loggedUser != undefined">
-    <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+  <mat-form-field class="search" *ngIf="(this.us.loggedUser != undefined)&&(this.us.LeftTheStore)">
+    <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="delete()" (click)="value=''">
       <mat-icon>close</mat-icon>
     </button>
     <input matInput type="text" [(ngModel)]="value">
     <button mat-button class="searchB" (click)="searchProduct()">
       <mat-icon>search</mat-icon>
     </button>
+    <span class="msg">{{msg}}</span>
   </mat-form-field>
-  <div *ngIf="this.us.loggedUser">
+  <div *ngIf="this.us.loggedUser" class="logOut">
     <h5>Hello {{this.us.loggedUser[0].f_name}}</h5>
-    <button mat-button (click)="this.us.logout()">Log Out</button>
+    <button mat-button (click)="this.us.logout()">
+      <mat-icon>logout</mat-icon>
+    </button>
   </div>
 </mat-toolbar>
 

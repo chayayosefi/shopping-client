@@ -5,7 +5,6 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { DialogComponent } from '../dialog/dialog.component';
 import { UserService } from 'src/app/services/user.service';
 import { AdminService } from 'src/app/services/admin.service';
-import { StoreComponent } from '../store/store.component';
 
 @Component({
   selector: 'app-products',
@@ -19,7 +18,6 @@ export class ProductsComponent implements OnInit {
     public ss: ServiceService,
     public dialog: MatDialog,
     public us: UserService,
-    public sc:StoreComponent,
     public as: AdminService
   ) { }
 
@@ -30,7 +28,7 @@ export class ProductsComponent implements OnInit {
     this.ss.getAllCategory().subscribe(
       res => {
         this.ss.allCategories = res
-        this.getProByCategory("5fbe6a13dd49bd44a8993e53")
+        this.getProByCategory("5ff9da2552c72c77fce082a0")
       })
   }
 
@@ -71,8 +69,5 @@ export class ProductsComponent implements OnInit {
 
   }
 
-  editProduct(p) {
-      this.as.editProduct = p
-      // this.sc.toggle()
-  }
+  
 }

@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogOrderComponent } from 'src/app/components/dialog-order/dialog-order.component';
 import { Router } from '@angular/router';
+import Mark from 'mark.js'
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-order',
@@ -26,8 +28,12 @@ export class OrderComponent implements OnInit {
   pattern: any = /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/
   msg: any
   body: any
+  open: boolean = false
+  value = '';
+
 
   ngOnInit(): void {
+    this.us.LeftTheStore = false
     if (this.us.loggedUser === undefined) {
       alert("The user is not logged in")
       this.r.navigateByUrl('/login')
@@ -38,6 +44,7 @@ export class OrderComponent implements OnInit {
       deliveryDate: ['', Validators.required],
       creditCard: ['', Validators.required]
     })
+
     this.today = new Date().toISOString().split('T')[0];
   }
 
@@ -55,7 +62,6 @@ export class OrderComponent implements OnInit {
             }
             this.us.openOrder(this.body).subscribe(
               (res: any) => {
-                // console.log(res)
                 if (!res.error) {
                   this.openDialog()
                 }
@@ -63,15 +69,17 @@ export class OrderComponent implements OnInit {
             )
           }
         })
+    } else {
+      this.msg = "Invalid credit number"
     }
   }
 
   openDialog() {
+    this.open = true
     const dialogRef = this.dialog.open(DialogOrderComponent)
-
     dialogRef.afterClosed().subscribe(
       (res: any) => {
-        // console.log(`Dialog result: ${res}`);
+        this.open = false
       });
   }
 
@@ -83,4 +91,23 @@ export class OrderComponent implements OnInit {
   street() {
     this.details.controls.street.setValue(this.us.loggedUser[0].street)
   }
+
+  clearSearch() {
+    document.getElementById('test').innerHTML =
+      document.getElementById('test').innerHTML.replace(new RegExp(`<mark>${this.value}</mark>`, 'ig'), (found) => {
+        return `${this.value}`
+      })
+    this.value = ''
+  }
+
+  searchInCart() {
+    document.getElementById('test').innerHTML =
+      document.getElementById('test').innerHTML.replace(new RegExp(this.value, 'ig'), (found) => {
+        return `<mark>${found}</mark>`
+      })
+
+
+  }
+
+
 }

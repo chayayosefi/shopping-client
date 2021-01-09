@@ -47,6 +47,8 @@ export class ServiceService {
     return this.http.get(this.baseUrl + '/allCategory')
   }
 
+
+
   getAllProducts() {
     return this.http.get(this.baseUrl + '/products/all')
   }

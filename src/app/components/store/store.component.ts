@@ -24,11 +24,11 @@ export class StoreComponent implements OnInit {
       alert("The user is not logged in")
       this.r.navigateByUrl('/login')
     }
-
+    this.us.LeftTheStore=true
   }
 
-  again(){
-    if(this.us.admin){
+  again() {
+    if (this.us.admin) {
       this.as.editProduct = undefined
     }
 

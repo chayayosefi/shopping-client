@@ -24,7 +24,10 @@ import { DialogOrderComponent } from './components/dialog-order/dialog-order.com
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-// import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { MatTableModule } from '@angular/material/table';
+import { ReciptComponent } from './components/recipt/recipt.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -39,7 +42,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     OrderComponent,
     DialogOrderComponent,
     EditProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    ReciptComponent
   ],
   entryComponents: [DialogComponent],
   imports: [
@@ -56,7 +60,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatDialogModule,
     MatSelectModule,
     MatStepperModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTableModule,
+    MatExpansionModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

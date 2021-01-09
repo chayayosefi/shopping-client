@@ -1,9 +1,7 @@
 <h1 mat-dialog-title>Your purchase was successful !!</h1>
 <div mat-dialog-content>
-    <!-- <h2>To download the receipt <button (click)="generateReceipt()"><a routerLink="/store">click here</a></button></h2> -->
-    <h2>To download the receipt <button (click)="generateReceipt()">click here</button></h2>
-
+    <h2>To download the receipt <button mat-button color="accent" (click)="generateReceipt()">click here</button></h2>
 </div>
 <div mat-dialog-actions>
-    <button class="myButton" mat-dialog-close><a routerLink="/store" (click)="deletCart()">Confirmation</a></button>
+    <button mat-button color="accent" mat-dialog-close (click)="deleteCart()">Confirmation</button>
 </div>

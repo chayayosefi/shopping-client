@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { InformationeService } from './services/informatione.service';
 import { ServiceService } from './services/service.service';
 import { UserService } from './services/user.service';
-// import * as moment from 'moment'
 
 @Component({
   selector: 'app-root',
@@ -22,22 +21,21 @@ export class AppComponent {
 
   title = 'client';
   value = '';
+  msg: any
 
   ngOnInit(): void {
     if (localStorage.token != undefined) {
       const token = localStorage.token
       const date = localStorage.date
       const user = JSON.parse(localStorage.user)
-      // console.log((Date.now()-date),((Date.now()-date)/1000)/60)
       if (((Date.now() - date) / 1000) / 60 <= 10) {
         this.us.loggedUser = user
         if (this.us.loggedUser[0].role === "admin") {
           this.us.admin = true
-        }else{
+        } else {
           this.us.checkCart()
           this.ss.getAllProductsByCart()
         }
-        // this.r.navigateByUrl('/login')
       } else {
         this.us.logout()
       }
@@ -46,14 +44,21 @@ export class AppComponent {
 
 
   searchProduct() {
-    this.is.getsearchProduct(this.value).subscribe(
+    this.is.tempPriceByProduct(this.value).subscribe(
       (res: any) => {
         if (res.length != 0) {
           this.is.products = res
+          this.value = ''
+        } else {
+          this.msg = 'The product is not exist in store'
         }
       }
     )
   }
 
+  delete(){
+    this.msg = ''
+
+  }
 
 }

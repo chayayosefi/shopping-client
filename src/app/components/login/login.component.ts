@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.us.loggedUser !== undefined) {
-      this.us.login = true
       this.us.checkCart()
       // 600000
       setTimeout(() => {
@@ -65,11 +64,11 @@ export class LoginComponent implements OnInit {
             setTimeout(() => {
               this.us.logout()
             }, 600000)
+
             this.r.navigateByUrl('/store')
 
           }
           this.us.checkCart()
-          this.us.login = true
           // 600000
           setTimeout(() => {
             this.us.logout()

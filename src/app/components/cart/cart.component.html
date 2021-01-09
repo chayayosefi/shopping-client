@@ -1,4 +1,4 @@
-<button *ngIf="this.us.cart!=undefined" class="clean" (click)="productsDelete()">clean the cart</button>
+<button mat-button *ngIf="this.us.cart!=undefined" class="clean" (click)="productsDelete()">clean the cart</button>
 <br>
 <div *ngFor="let p of this.ss.productInCart">
     <mat-card class="product">

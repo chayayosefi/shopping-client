@@ -20,3 +20,23 @@ margin: 2px;
 h2{
 color: red;
 }
+
+.search{
+    width: 150px;
+} 
+
+.searchB{
+margin-left: 25px;
+border:none;
+border-radius: 50%;
+background-color: #ff4081;
+cursor: pointer;
+width: 45px;
+height: 45px;
+}
+
+button{
+    border: white;
+    }
+
+   

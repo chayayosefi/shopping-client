@@ -14,6 +14,7 @@
             <mat-option value={{this.ss.allCategories[1]._id}}>{{this.ss.allCategories[1].name}}</mat-option>
             <mat-option value={{this.ss.allCategories[2]._id}}>{{this.ss.allCategories[2].name}}</mat-option>
             <mat-option value={{this.ss.allCategories[3]._id}}>{{this.ss.allCategories[3].name}}</mat-option>
+            <mat-option value={{this.ss.allCategories[4]._id}}>{{this.ss.allCategories[4].name}}</mat-option>
         </mat-select>
     </mat-form-field>
     <br>
@@ -24,15 +25,7 @@
     <br>
     <span *ngIf="formGroupProduct.controls.price.dirty && formGroupProduct.controls.price.invalid">price cannot be
         empty</span>
-    <br>
-    <mat-form-field>
-        <mat-label>Description</mat-label>
-        <input type="text" matInput placeholder="description" formControlName="description" required>
-    </mat-form-field>
-    <br>
-    <span
-        *ngIf="formGroupProduct.controls.description.dirty && formGroupProduct.controls.description.invalid">description
-        cannot be empty</span>
+
     <br>
     <mat-form-field>
         <mat-label>ImagePath</mat-label>
@@ -44,6 +37,6 @@
     <div>
         <p>{{msg}}</p>
         <br>
-        <button (click)="addProduc(); formGroupProduct.reset();" [disabled]="formGroupProduct.invalid">Add</button>
+        <button mat-button (click)="addProduct(); formGroupProduct.reset();" [disabled]="formGroupProduct.invalid">Add</button>
     </div>
 </form>

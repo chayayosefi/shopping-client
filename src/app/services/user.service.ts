@@ -13,6 +13,7 @@ export class UserService {
     private r: Router
   ) { }
 
+  LeftTheStore: boolean = false
   admin: boolean = false
   loggedUser: any
   baseUrl: string = "http://localhost:1000/user"
@@ -22,48 +23,65 @@ export class UserService {
   msg: any
   value: any
 
+  getLastOrder() {
+    return this.http.get(this.baseUrl + '/allOrders/' + this.loggedUser[0]._id)
+  }
+
+
   existCart(userId) {
     return this.http.get(this.baseUrl + '/check_cart/' + userId)
   }
 
   addOrRemoveProduct(body) {
     return this.http.put(this.baseUrl + '/addOrRemoveProductFromCart', JSON.stringify(body), {
-      headers: { 'Content-Type': 'application/json' }
+      headers: {
+        'Content-Type': 'application/json',
+        "Authorization": localStorage.token
+      }
     })
   }
 
   openCart(body) {
     return this.http.post(this.baseUrl + '/open_cart', JSON.stringify(body), {
       headers: {
-        "content-type": "application/json"
-        // "Authorization": localStorage.token
+        "content-type": "application/json",
+        "Authorization": localStorage.token
       }
     })
   }
 
   deleteProductFromCart(body) {
     return this.http.put(this.baseUrl + '/deleteProductFromCart', JSON.stringify(body), {
-      headers: { 'Content-Type': 'application/json' }
+      headers: {
+        'Content-Type': 'application/json',
+        "Authorization": localStorage.token
+      }
     })
   }
 
   deleteProductsFromCart(body) {
     return this.http.put(this.baseUrl + '/deleteProductsFromCart', JSON.stringify(body), {
-      headers: { 'Content-Type': 'application/json' }
+      headers: {
+        'Content-Type': 'application/json',
+        "Authorization": localStorage.token
+      }
     })
   }
 
   deleteCart(id) {
     return this.http.put(this.baseUrl + '/delete_cart/' + id, {
-      headers: { 'Content-Type': 'application/json' }
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": localStorage.token
+      }
     })
   }
 
   openOrder(body) {
     return this.http.post(this.baseUrl + '/open_order', JSON.stringify(body), {
       headers: {
-        "content-type": "application/json"
-        // "Authorization": localStorage.token
+        "content-type": "application/json",
+        "Authorization": localStorage.token
       }
     })
   }
@@ -72,23 +90,27 @@ export class UserService {
     this.existCart(this.loggedUser[0]._id).subscribe(
       (res: any) => {
         if (res.msg == "There is no active cart") {
-          //   if (this.cartExist) {
-
-          //     this.msg = "Your last purchase was in:"
-          //     this.value = "Start shopping"
-          //     this.login = true
-
-          //   }
-          // } else {
-          this.msg = "Welcome " + this.loggedUser[0].f_name + " !"
-          this.value = "Start shopping"
-          this.login = true
+          this.getLastOrder().subscribe(
+            (res: any) => {
+              if (res.length !== 0) {
+                this.msg = "Your last order was in: " + moment(res[res.length - 1].creationDate).format('DD/MM/YYYY')
+                this.value = "Start shopping"
+                this.login = true
+              } else {
+                this.msg = "Welcome " + this.loggedUser[0].f_name + " !"
+                this.value = "Start shopping"
+                this.login = true
+              }
+            })
         } else {
+
           this.cart = res.msg[0]
           this.msg = "There is an active cart from date:" + moment(this.cart.creationDate).format('DD/MM/YYYY') + " and final price:" + this.cart.finalPrice + "$"
           this.value = "Continue shopping"
           this.cartExist = true
           this.login = true
+
+
         }
       }
     )
@@ -102,6 +124,7 @@ export class UserService {
     this.login = undefined
     this.msg = undefined
     this.loggedUser = undefined
+    this.value =''
     this.r.navigateByUrl('/login')
   }
 

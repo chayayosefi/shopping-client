@@ -1,107 +1,113 @@
-
 <div class="container" style="flex-direction: column;">
-<div class="register">
-<mat-horizontal-stepper linear #stepper>
-    <mat-step [completed]="this.res">
-        <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Step 1</ng-template>
-            <mat-form-field>
-                <mat-label>ID</mat-label>
-                <input matInput placeholder="ID" formControlName="user_id" required>
-            </mat-form-field>
-            <br>
-            <span *ngIf="firstFormGroup.controls.user_id.dirty && firstFormGroup.controls.user_id.invalid">user_id
-                cannot be
-                empty</span>
-            <br>
-            <mat-form-field>
-                <mat-label>Email</mat-label>
-                <input matInput placeholder="Email" formControlName="email" required>
-            </mat-form-field>
-            <br>
-            <span *ngIf="firstFormGroup.controls.email.dirty && firstFormGroup.controls.email.invalid">email cannot
-                be empty</span>
-            <br>
-            <mat-form-field>
-                <mat-label>Password</mat-label>
-                <input matInput placeholder="Password" formControlName="password" required>
-            </mat-form-field>
-            <br>
-            <span *ngIf="firstFormGroup.controls.password.dirty && firstFormGroup.controls.password.invalid">password
-                cannot be
-                empty</span>
-            <br>
-            <mat-form-field>
-                <mat-label>Password confirm</mat-label>
-                <input matInput placeholder="Password confirm" formControlName="passwordConfirm" required>
-            </mat-form-field>
-            <br>
-            <span
-                *ngIf="firstFormGroup.controls.passwordConfirm.dirty && firstFormGroup.controls.passwordConfirm.invalid">password
-                confirm cannot be
-                empty</span>
-            <div>
-                <p>{{msg}}</p>
-                <br>
-                <button mat-button matStepperNext (click)="checkregister()">Next</button>
-            </div>
-        </form>
-    </mat-step>
-    <mat-step label="Step 2" [completed]="this.res">
-        <form [formGroup]="secondFormGroup">
-            <mat-form-field>
-                <mat-label>City</mat-label>
-                <mat-select formControlName="city">
-                    <mat-option value="Tel Aviv">Tel Aviv</mat-option>
-                    <mat-option value="Haifa">Haifa</mat-option>
-                    <mat-option value="Jerusalem">Jerusalem</mat-option>
-                    <mat-option value="Rishon Lezion">Rishon Lezion</mat-option>
-                    <mat-option value="Ashdod">Ashdod</mat-option>
-                    <mat-option value="Beer Sheva">Beer Sheva</mat-option>
-                    <mat-option value="Petah Tikva">Petah Tikva</mat-option>
-                    <mat-option value="Beit Shemesh">Beit Shemesh</mat-option>
-                    <mat-option value="Holon">Holon</mat-option>
-                    <mat-option value="Bnei Brak">Bnei Brak</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <br>
-            <mat-form-field>
-                <mat-label>Street</mat-label>
-                <input matInput formControlName="street" placeholder="Street" required>
-            </mat-form-field>
-            <br>
-            <span *ngIf="secondFormGroup.controls.street.dirty && secondFormGroup.controls.street.invalid">street
-                confirm cannot be
-                empty</span>
-            <br>
-            <mat-form-field>
-                <mat-label>Name</mat-label>
-                <input matInput formControlName="f_name" placeholder="Name" required>
-            </mat-form-field>
-            <br>
-            <span *ngIf="secondFormGroup.controls.f_name.dirty && secondFormGroup.controls.f_name.invalid">name
-                confirm cannot be
-                empty</span>
-            <br>
-            <mat-form-field>
-                <mat-label>Last name</mat-label>
-                <input matInput formControlName="l_name" placeholder=" Last name" required>
-            </mat-form-field>
-            <br>
-            <span *ngIf="secondFormGroup.controls.l_name.dirty && secondFormGroup.controls.l_name.invalid">last name
-                confirm cannot be
-                empty</span>
-            <br>
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button matStepperNext (click)="handleSubmit()">To register</button>
-            </div>
-        </form>
-    </mat-step>
-</mat-horizontal-stepper>
-<br>
-</div>
-<div class="back">
-<p><a routerLink="/login">Back to home</a></p>
-</div>
+    <div class="register">
+        <mat-horizontal-stepper linear #stepper>
+            <mat-step >
+                <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Step 1</ng-template>
+                    <mat-form-field>
+                        <mat-label>ID</mat-label>
+                        <input matInput placeholder="ID" formControlName="user_id" required>
+                    </mat-form-field>
+                    <br>
+                    <span
+                        *ngIf="firstFormGroup.controls.user_id.dirty && firstFormGroup.controls.user_id.invalid">user_id
+                        cannot be
+                        empty</span>
+                    <br>
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email" formControlName="email" required>
+                    </mat-form-field>
+                    <br>
+                    <span *ngIf="firstFormGroup.controls.email.dirty && firstFormGroup.controls.email.invalid">email
+                        cannot
+                        be empty</span>
+                    <br>
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" placeholder="Password" formControlName="password" required>
+                    </mat-form-field>
+                    <br>
+                    <span
+                        *ngIf="firstFormGroup.controls.password.dirty && firstFormGroup.controls.password.invalid">password
+                        cannot be
+                        empty</span>
+                    <br>
+                    <mat-form-field>
+                        <mat-label>Password confirm</mat-label>
+                        <input matInput type="password" placeholder="Password confirm" formControlName="passwordConfirm"
+                            required>
+                    </mat-form-field>
+                    <br>
+                    <span
+                        *ngIf="firstFormGroup.controls.passwordConfirm.dirty && firstFormGroup.controls.passwordConfirm.invalid">password
+                        confirm cannot be
+                        empty</span>
+                    <div>
+                        <p>{{msg}}</p>
+                        <br>
+                        <button mat-button [disabled]="!firstFormGroup.valid"
+                            (click)="checkNextStep(stepper)">Next</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step label="Step 2" >
+                <form [formGroup]="secondFormGroup">
+                    <mat-form-field>
+                        <mat-label>City</mat-label>
+                        <mat-select formControlName="city">
+                            <mat-option value="Tel Aviv">Tel-Aviv</mat-option>
+                            <mat-option value="Haifa">Haifa</mat-option>
+                            <mat-option value="Jerusalem">Jerusalem</mat-option>
+                            <mat-option value="Rishon Lezion">Rishon-Lezion</mat-option>
+                            <mat-option value="Ashdod">Ashdod</mat-option>
+                            <mat-option value="Beer Sheva">Beer-Sheva</mat-option>
+                            <mat-option value="Petah Tikva">Petah-Tikva</mat-option>
+                            <mat-option value="Beit Shemesh">Beit-Shemesh</mat-option>
+                            <mat-option value="Holon">Holon</mat-option>
+                            <mat-option value="Bnei Brak">Bnei-Brak</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <mat-label>Street</mat-label>
+                        <input matInput formControlName="street" placeholder="Street" required>
+                    </mat-form-field>
+                    <br>
+                    <span
+                        *ngIf="secondFormGroup.controls.street.dirty && secondFormGroup.controls.street.invalid">street
+                        confirm cannot be
+                        empty</span>
+                    <br>
+                    <mat-form-field>
+                        <mat-label>Name</mat-label>
+                        <input matInput formControlName="f_name" placeholder="Name" required>
+                    </mat-form-field>
+                    <br>
+                    <span *ngIf="secondFormGroup.controls.f_name.dirty && secondFormGroup.controls.f_name.invalid">name
+                        confirm cannot be
+                        empty</span>
+                    <br>
+                    <mat-form-field>
+                        <mat-label>Last name</mat-label>
+                        <input matInput formControlName="l_name" placeholder=" Last name" required>
+                    </mat-form-field>
+                    <br>
+                    <span *ngIf="secondFormGroup.controls.l_name.dirty && secondFormGroup.controls.l_name.invalid">last
+                        name
+                        confirm cannot be
+                        empty</span>
+                    <br>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext (click)="handleSubmit()">To register</button>
+                    </div>
+                </form>
+            </mat-step>
+        </mat-horizontal-stepper>
+        <br>
+    </div>
+    <div class="back">
+        <p><a routerLink="/login">Back to home</a></p>
+    </div>
 </div>

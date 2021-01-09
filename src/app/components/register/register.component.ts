@@ -26,8 +26,7 @@ export class RegisterComponent implements OnInit {
   patternEMAIL: any = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/
   patternID: any = /^[0-9]{9}$/
   msg: any
-  res: any = false
-  res2: any = false
+ 
 
   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
@@ -43,30 +42,32 @@ export class RegisterComponent implements OnInit {
       l_name: ['', Validators.required]
     });
   }
-  
-  checkregister() {
-    if (this.firstFormGroup.value.user_id.match(this.patternID)) {
-      if (this.firstFormGroup.value.password === this.firstFormGroup.value.passwordConfirm) {
-        if (this.firstFormGroup.value.email.match(this.patternEMAIL)) {
-          this.ss.register(this.firstFormGroup.value).subscribe(
-            (res: any) => {
-              console.log(res.error)
-              if (!res.error) {
-                this.res = true
-              } else {
-                this.msg = res.msg
-              }
-            }
-          )
-        } else {
-          this.msg = "Incorrect email"
-        }
-      } else {
-        this.msg = "Incorrect password verification"
-      }
-    } else {
+
+  async checkNextStep(stepper) {
+
+    if (!this.firstFormGroup.value.user_id.match(this.patternID)) {
       this.msg = "Incorrect id"
+      return;
     }
+
+    if (this.firstFormGroup.value.password !== this.firstFormGroup.value.passwordConfirm) {
+      this.msg = "Incorrect password verification";
+      return;
+    }
+
+    if (!this.firstFormGroup.value.email.match(this.patternEMAIL)) {
+      this.msg = "Incorrect email";
+      return;
+    }
+
+    const res: any = await this.ss.register(this.firstFormGroup.value).toPromise();
+
+    if (res.error) {
+      this.msg = res.msg
+      return
+    }
+    stepper.next()
+
   }
 
   handleSubmit() {

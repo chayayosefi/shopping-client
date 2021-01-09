@@ -30,20 +30,23 @@ export class AddProductComponent implements OnInit {
       name: ['', Validators.required],
       categoryId: ['', Validators.required],
       price: ['', Validators.required],
-      description: ['', Validators.required],
       imagePath: ['', Validators.required]
     });
+    if (this.ss.allCategories === undefined) {
+      return
+    }
   }
 
-  addProduc() {
+  addProduct() {
     this.as.addProduct(this.formGroupProduct.value).subscribe(
       (res: any) => {
         if (res.error) {
           this.msg = res.msg
         } else {
-          this.is.getProductsByCategory("5fbe6a13dd49bd44a8993e53").subscribe(
+          this.is.getProductsByCategory("5ff9da2552c72c77fce082a0").subscribe(
             res => {
               this.is.products = res
+              this.as.sideNav=false
             }
           )
         }

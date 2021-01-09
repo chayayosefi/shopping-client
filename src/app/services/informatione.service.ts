@@ -15,7 +15,7 @@ export class InformationeService {
     return this.http.get(this.baseUrl + categoryId)
   }
 
-  getsearchProduct(text) {
+  tempPriceByProduct(text) {
     return this.http.get(this.baseUrl + "search/" + text)
   }
 
