@@ -26,8 +26,16 @@ button{
 border: white;
 }
 
+.mat-toolbar{
+    margin: auto;
+     position:relative;
+}
 .logOut{
-    margin-left: 420px;
+    /* margin-left: 420px; */
+    /* color: #fff; */
+     position: absolute; 
+     top: 0px;
+      right: 0px
   
 }
 
