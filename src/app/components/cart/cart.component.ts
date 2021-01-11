@@ -52,4 +52,8 @@ export class CartComponent implements OnInit {
     )
   }
 
+  toOrder() {
+    this.r.navigateByUrl('/order')
+  }
+
 }

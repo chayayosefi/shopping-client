@@ -20,11 +20,11 @@ export class StoreComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.us.LeftTheStore=true
     if (this.us.loggedUser === undefined) {
       alert("The user is not logged in")
       this.r.navigateByUrl('/login')
     }
-    this.us.LeftTheStore=true
   }
 
   again() {

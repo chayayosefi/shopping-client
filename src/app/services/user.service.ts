@@ -98,20 +98,17 @@ export class UserService {
                 this.value = "Start shopping"
                 this.login = true
               } else {
-                this.msg = "Welcome " + this.loggedUser[0].f_name + " !"
+                this.msg = "Welcome to your first purchase!"
                 this.value = "Start shopping"
                 this.login = true
               }
             })
         } else {
-
           this.cart = res.msg[0]
           this.msg = "There is an active cart from date:" + moment(this.cart.creationDate).format('DD/MM/YYYY') + " and final price:" + this.cart.finalPrice + "$"
           this.value = "Continue shopping"
           this.cartExist = true
           this.login = true
-
-
         }
       }
     )

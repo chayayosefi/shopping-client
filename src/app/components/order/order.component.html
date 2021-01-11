@@ -2,7 +2,7 @@
 <div class="main">
     <div class="cart">
         <mat-form-field class="search">
-            <mat-label>Search in reception</mat-label>
+            <mat-label>Search receipt by product name</mat-label>
             <input matInput type="text" [(ngModel)]="value">
         </mat-form-field>
         <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
@@ -13,10 +13,10 @@
         </button>
         <h3>My cart</h3>
         <p><a routerLink="/store">Back to shop</a></p>
-        <div id="test">
+        <div>
             <div *ngFor="let p of this.ss.productInCart">
                 <mat-card class="product" id="product">
-                    <h4>{{p.name}}</h4>
+                    <h4 class="name">{{p.name}}</h4>
                     <div class="main">
                         <div class="info">
                             <h5>Price: {{p.price}}$</h5>

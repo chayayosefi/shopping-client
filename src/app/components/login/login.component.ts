@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   body: any
 
   ngOnInit(): void {
+    this.us.LeftTheStore=false
     if (this.us.loggedUser !== undefined) {
       this.us.checkCart()
       // 600000

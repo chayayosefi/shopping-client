@@ -22,4 +22,5 @@
 </div>
 
 <h4 *ngIf="this.us.cart!=undefined">Final price of cart:{{this.us.cart.finalPrice}}$</h4>
-<h4 *ngIf="this.us.cart!=undefined"><a routerLink="/order">order</a></h4>
+<button mat-button *ngIf="this.us.cart!=undefined" (click)="toOrder()">order</button>
+

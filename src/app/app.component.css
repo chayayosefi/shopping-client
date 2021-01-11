@@ -5,9 +5,9 @@ width: 100px;
 }
 
 .search{
-    /* margin: 0 auto; */
-    margin-left: 25px;
-    width: 150px;
+/* margin: 0 auto; */
+margin-left: 40px;
+width: 150px;
 }
 
 .searchB{
@@ -27,19 +27,17 @@ border: white;
 }
 
 .mat-toolbar{
-    margin: auto;
-     position:relative;
+margin: auto;
+position:relative;
 }
+
 .logOut{
-    /* margin-left: 420px; */
-    /* color: #fff; */
-     position: absolute; 
-     top: 0px;
-      right: 0px
-  
+position: absolute; 
+top: 0px;
+right: 0px
 }
 
 .msg{
-    color: DeepPink;
+color: DeepPink;
 }
 

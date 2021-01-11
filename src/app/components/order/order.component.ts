@@ -33,7 +33,7 @@ export class OrderComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.us.LeftTheStore = false
+    this.us.LeftTheStore=false
     if (this.us.loggedUser === undefined) {
       alert("The user is not logged in")
       this.r.navigateByUrl('/login')
@@ -93,20 +93,18 @@ export class OrderComponent implements OnInit {
   }
 
   clearSearch() {
-    document.getElementById('test').innerHTML =
-      document.getElementById('test').innerHTML.replace(new RegExp(`<mark>${this.value}</mark>`, 'ig'), (found) => {
-        return `${this.value}`
-      })
+    const names = document.getElementsByClassName("name")
+    for (let i = 0; i < names.length; i++) {
+      names[i].innerHTML = names[i].textContent.replace('<mark>' + this.value + '</mark>', this.value)
+    }
     this.value = ''
   }
 
   searchInCart() {
-    document.getElementById('test').innerHTML =
-      document.getElementById('test').innerHTML.replace(new RegExp(this.value, 'ig'), (found) => {
-        return `<mark>${found}</mark>`
-      })
-
-
+    const names = document.getElementsByClassName("name")
+    for (let i = 0; i < names.length; i++) {
+      names[i].innerHTML = names[i].textContent.replace(this.value, '<mark>' + this.value + '</mark>')
+    }
   }
 
 
